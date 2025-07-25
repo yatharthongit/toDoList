@@ -1,10 +1,14 @@
-export function Project(){
+import {Domstuff} from "./dom";
 
-    class Proj{
+class Proj{
         constructor(projTitle){
         this.projTitle=projTitle;       
     }
     }
+
+export function Project(){
+
+    const dom=Domstuff();
 
     const takeProjectInput=()=>{
         const form=document.getElementById("myform");
@@ -17,9 +21,13 @@ export function Project(){
     }
 
     const printProject=(p)=>{
-        console.log(p);
+        dom.add(".projectList",p.projTitle);
     }
 
-    return{takeProjectInput, printProject};
+    const home=()=>{
+        dom.add(".projectList","home");
+    }
+
+    return{takeProjectInput, printProject, home};
 
 }

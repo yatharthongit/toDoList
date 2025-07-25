@@ -11,7 +11,7 @@ export function ToDo(){
     }
 
     const takeTodoInput=()=>{
-        const title=prompt("title")
+        
     }
 
     const createObject=()=>{
