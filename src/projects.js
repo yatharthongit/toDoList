@@ -9,25 +9,32 @@ class Proj{
 export function Project(){
 
     const dom=Domstuff();
+    let currentProject = "home";
 
     const takeProjectInput=()=>{
         const form=document.getElementById("myform");
         form.addEventListener("submit",(e)=>{
             e.preventDefault();
-            const projTitle=document.getElementById("title").value;
+            const projTitle=document.getElementById("projTitle").value;
             const p=new Proj(projTitle);
             printProject(p);
         })
     }
 
     const printProject=(p)=>{
-        dom.add(".projectList",p.projTitle);
+        dom.add(".projectList",p.projTitle,setCurrentProject);
     }
 
     const home=()=>{
-        dom.add(".projectList","home");
+        dom.add(".projectList","home",setCurrentProject);
     }
 
-    return{takeProjectInput, printProject, home};
+    const setCurrentProject=(name)=>{
+        currentProject=name;
+    }
+
+    const getCurrentProject=()=> currentProject;
+
+    return{takeProjectInput, printProject, home,setCurrentProject,getCurrentProject};
 
 }

@@ -1,6 +1,6 @@
 import {Domstuff} from "./dom";
 
-export function ToDo(){
+export function ToDo(projectInstance){
     
     class Todo{
         constructor(title,description,dueDate,priority,status){
@@ -21,7 +21,7 @@ export function ToDo(){
             e.preventDefault();
             const title=document.getElementById("title").value;
             const description=document.getElementById("description").value;
-            const dueDate=document.getElementById("dueDate").value;
+            const dueDate=document.getElementById("date").value;
             const priority=document.getElementById("priority").value;
 
             const task=new Todo(title,description,dueDate,priority,"checked");
@@ -30,8 +30,10 @@ export function ToDo(){
     }
 
     const printTodo=(task)=>{
-        dom.addTodo(".todoList",task.title,task.description,task.dueDate,task.priority);
+        const projectName=projectInstance.getCurrentProject();
+        dom.addTodo(projectName,task.title,task.description,task.dueDate,task.priority);
     }
 
+    return {takeTodoInput, printTodo}
     
 }
