@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+<script defer src="main.js"></script></head>
+<body>
+
+    <div class="sidebar">
+        <h2>Projects</h2>
+        <div class="projectList"></div>
+        <dialog id="mydialog">
+        <form id="myform">
+        <label for="title">Project Title:</label>
+        <input type="text" name="title" id="projTitle">
+        <button type="submit" value="default" onclick="document.getElementById('mydialog').close()">Submit</button>
+        <button type="button" onclick="document.getElementById('mydialog').close()">Cancel</button>
+        </form>
+        </dialog>
+
+        <button onclick="document.getElementById('mydialog').showModal()">Add New Project</button>
+    </div>
+
+    <div class="todo">
+        <div class="todoList"></div>
+        <dialog id="mydialogtodo">
+        <form id="myformtodo">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title">
+        <label for="description">Description:</label>
+        <input type="text" name="description" id="description">
+        <label for="date">Date:</label>
+        <input type="date" name="date" id="date">
+        <label for="priority">Priority:</label>
+        <select name="priority" id="priority">
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <button type="submit" value="default" onclick="document.getElementById('mydialogtodo').close()">Submit</button>
+        <button type="button" onclick="document.getElementById('mydialogtodo').close()">Cancel</button>
+        </form>
+        </dialog>
+
+        <button onclick="document.getElementById('mydialogtodo').showModal()">Add New Task</button>
+    </div>
+    
+</body>
+</html>
